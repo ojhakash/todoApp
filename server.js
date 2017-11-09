@@ -9,7 +9,6 @@ const {isRealString} = require('./utils/validation');
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
-console.log(__dirname);
 const port = process.env.PORT || 3000;
 
 var todos = [];
@@ -39,8 +38,7 @@ app.post('/todos',(req,res)=>{
   todo.answers = [];
 
   todos = JSON.parse(fs.readFileSync('todo-data.json'));
-  // console.log(fs.readFileSync('todo-data.json');
-  console.log(JSON.parse(fs.readFileSync('todo-data.json')));
+
   if(todos.length === 0){
     fs.writeFileSync('todo-data.json', JSON.stringify([todo],undefined,2));
   }else{
@@ -59,14 +57,12 @@ app.post('/todos/:id/options/create',(req,res)=>{
   var id = req.params.id;
   todos = JSON.parse(fs.readFileSync('todo-data.json'));
   todo = _.find(todos,(todo)=>todo.id === id);
-  console.log(todo);
   if(!todo){
     res.status(404).send();
   }else{
     todo.options = req.body.options;
     _.remove(todos,(todo)=>todo.id === id);
     todos.push(todo);
-    console.log(todos);
     fs.unlinkSync('./todo-data.json');
     fs.writeFileSync('todo-data.json',JSON.stringify(todos,undefined,2));
     res.send(todos);
@@ -76,7 +72,6 @@ app.post('/todos/:id/options/create',(req,res)=>{
 app.get('/todos/:id',(req,res)=>{
   var id = req.params.id;
   todos = JSON.parse(fs.readFileSync('todo-data.json'));
-  console.log(todos);
   var todo = _.find(todos,(todo)=>todo.id === id);
 
   if(!todo){
@@ -88,10 +83,8 @@ app.get('/todos/:id',(req,res)=>{
 
 app.post('/todos/:id/answers/create',(req,res)=>{
   var id = req.params.id;
-  console.log(id);
   todos = JSON.parse(fs.readFileSync('todo-data.json'));
   todo = _.find(todos,(todo)=>todo.id === id);
-  console.log(todo);
   if(!todo){
     res.status(404).send();
   }else{
@@ -101,7 +94,6 @@ app.post('/todos/:id/answers/create',(req,res)=>{
     todo.answers.push(req.body.answer);
     _.remove(todos,(todo)=>todo.id === id);
     todos.push(todo);
-    console.log(todos);
     fs.unlinkSync('./todo-data.json');
     fs.writeFileSync('todo-data.json',JSON.stringify(todos,undefined,2));
     res.send(todos);
@@ -118,7 +110,6 @@ app.delete('/todos/:id',(req,res)=>{
     res.status(404).send();
   }else{
     _.remove(todos,(todo)=>todo.id === id);
-    console.log(todos);
     fs.unlinkSync('./todo-data.json');
     fs.writeFileSync('todo-data.json',JSON.stringify(todos,undefined,2) );
     res.send(todos);
@@ -135,7 +126,6 @@ app.put('/todos/:id',(req,res)=>{
     res.status(404).send();
   }else{
     _.remove(todos,(todo)=>todo.id === id);
-    console.log(todos);
     todo.id = id;
     todo.todoItem = req.body.todoItem;
     todos.push(todo);
