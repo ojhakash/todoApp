@@ -1,0 +1,23 @@
+todoApp.config(function($routeProvider){
+  $routeProvider
+  .when('/',{
+    templateUrl:'views/home-view.html',
+    controller:'mainController',
+    controllerAs:'mainInfo'
+  })
+  .when('/create',{
+    templateUrl:'views/createTodo-view.html',
+    controller:'createTodoController',
+    controllerAs:'createTodoInfo'
+  })
+  .when('/create/options/:id',{
+    templateUrl:'views/createOption-view.html',
+    controller:'createOptionsController',
+    controllerAs:'createOptionsInfo'
+  })
+  .when('/edit/:id',{
+    templateUrl:'views/editTodo-view.html',
+    controller:'editTodoController',
+    controllerAs:'editTodoInfo'
+  })
+});

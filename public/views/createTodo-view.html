@@ -1,0 +1,17 @@
+<div>
+  <md-content layout-padding>
+    <h4>Add your own todo :</h4>
+    <div>
+      <form name="userForm" ng-submit="createTodoInfo.createTodo()">
+        <md-input-container class="md-block">
+          <label>Todo question</label>
+          <input ng-model="createTodoInfo.todoItem" required="" autofocus>
+        </md-input-container>
+        <div>
+            <md-button class="md-primary md-raised" type="submit">Submit</md-button>
+        </div>
+      </form>
+    </div>
+
+  </md-content>
+</div>

@@ -1,0 +1,20 @@
+<div>
+  <md-content layout-padding>
+    <h4>Update this todo options :</h4>
+    <div>
+      <md-content flex layout-padding ng-if="createOptionsInfo.options">
+          <span>Options : </span><span ng-repeat="option in createOptionsInfo.options track by $index">{{ option }},</span>
+      </md-content>
+      <form name="userForm" ng-submit="createOptionsInfo.createOptions()">
+        <md-input-container class="md-block">
+          <label>Todo question</label>
+          <input ng-model="createOptionsInfo.option" required="" autofocus>
+        </md-input-container>
+        <md-button class="md-primary md-raised" ng-click="createOptionsInfo.addOptions()">Add</md-button>
+        <div  layout="row" layout-align="center center">
+            <md-button class="md-accent md-raised" type="submit">Submit</md-button>
+        </div>
+      </form>
+    </div>
+  </md-content>
+</div>

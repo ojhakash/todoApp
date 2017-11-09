@@ -1,0 +1,42 @@
+<html lang="en" ng-app="todoApp">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <toolbar-card></toolbar-card>
+  <h2 style="text-align:center;">Welcome to TODO app</h2>
+  <div ng-view>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+<script type="text/javascript" src="libs/lodash.js"></script>
+
+  <script src="/Angular/app.js"></script>
+
+  <script src="./Angular/Services/todoAppApi.js"></script>
+
+  <script src="./Angular/Directives/toolbarDirective.js"></script>
+
+  <script src="./Angular/Controllers/toolbarController.js"></script>
+  <script src="./Angular/Controllers/createTodoController.js"></script>
+  <script src="./Angular/Controllers/mainController.js"></script>
+  <script src="./Angular/Controllers/editTodoController.js"></script>
+  <script src="./Angular/Controllers/createOptionsController.js"></script>
+
+  <script src="/Angular/route.js"></script>
+
+
+</body>
+</html>

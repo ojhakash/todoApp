@@ -1,0 +1,29 @@
+<md-content class="md-padding" layout="column">
+<div flex layout="column" ng-init="mainInfo.getAllTodos()">
+  <md-card ng-repeat="todo in mainInfo.todos">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{todo.todoItem}}</span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <div layout="row" layout-wrap flex>
+        <div flex="25" ng-repeat="option in todo.options track by $index">
+          <md-checkbox type="checkbox" ng-click="mainInfo.toggleOptions(option,todo.id)">
+            {{ option }}
+          </md-checkbox>
+        </div>
+      </div>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center center">
+      <md-button class="md-raised md-warn md-hue-1" ng-click="mainInfo.submitAnswers()">Submit</md-button>
+    </md-card-actions>
+    <md-card-actions layout="row">
+      <md-button class="md-raised" ng-href="#/create/options/{{todo.id}}"  layout-align="start center">Update Optios</md-button>
+      <div flex></div>
+      <md-button class="md-raised md-accent" ng-href="#/edit/{{todo.id}}">Edit</md-button>
+      <md-button class="md-raised md-primary" ng-click="mainInfo.deleteTodo(todo.id)" layout-align="end center">Delete</md-button>
+    </md-card-actions>
+  </md-card>
+</div>
+</md-content>
